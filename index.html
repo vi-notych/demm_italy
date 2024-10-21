@@ -4,22 +4,246 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Demm</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
 
-  <header></header>
+  <header class="header">
+    <div class="header__top">
+      <div class="header__top-container container">
+        <nav class="header__top-menu">
+          <ul class="header__top-list">
+            <li class="header__top-link">
+              <a href="#">О компании</a>
+            </li>
+            <li class="header__top-link">
+              <a href="#">Оплата и доставка</a>
+            </li>
+            <li class="header__top-link">
+              <a href="#">Магазины</a>
+            </li>
+            <li class="header__top-link">
+              <a href="#">Контакты</a>
+            </li>
+          </ul>
+          <a class="header__top-account" href="#">
+            <img src="img/icons/user.svg" alt="icon-user">
+            <p>Личный кабинет</p>
+          </a>
+        </nav>
+      </div>
+    </div>
+    <div class="header__body container">
+      <div class="header__body-logo">
+        <img src="img/logo.svg" alt="img-logo">
+      </div>
+      <div class="header__body-search">
+        <input class="header__body-input" type="text" placeholder="Поиск по сайту..."></input>
+        <button class="header__body-icon">
+          <img src="img/icons/search.svg" alt="icon-search">
+        </button>
+      </div>
+      <div class="header__body-contact">
+        <a class="header__body-phone" href="tel:+79999999999">+7 999 999-99-99</a>
+        <p class="header__body-schedule">Звоните с 8:10 до 18:10</p>
+      </div>
+      <button class="header__body-btn button">Заказать звонок</button>
+    </div>
+    <div class="header__bottom">
+      <div class="header__bottom-container container">
+        <div class="header__bottom-inner">
+          <nav class="header__bottom-menu">
+            <button class="header__bottom-btn">
+              <img src="img/icons/stock.svg" alt="icon-stock">
+              <span>Акции</span>
+            </button>
+            <ul class="header__bottom-list">
+              <li class="header__bottom-link">
+                <a href="#">Смесители</a>
+              </li>
+              <li class="header__bottom-link">
+                <a href="#">Душевые системы</a>
+              </li>
+              <li class="header__bottom-link">
+                <a href="#">Душевые стойки</a>
+              </li>
+              <li class="header__bottom-link">
+                <a href="#">Изливы</a>
+              </li>
+              <li class="header__bottom-link">
+                <a href="#">Аксессуары</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="header__bottom-cart">
+            <a href="" class="header__bottom-icon">
+              <img src="img/icons/cart.svg" alt="icon-cart">
+              <span>0</span>
+            </a>
+            <span>Корзина</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
 
   <main class="main">
 
+    <section class="slider">
+      <div class="slider__swiper swiper">
+        <div class="slider__wrapper swiper-wrapper">
+          <div class="slider__slide swiper-slide">
+            <div class="slider__content container">
+              <a class="slider__link" href="#">
+                Перейти в каталог
+                <img src="img/icons/arrow.svg" alt="icon-arrow">
+              </a>
+              <div class="slider__title">
+                Изысканные смесители для вашего интерьера
+              </div>
+              <div class="slider__text">
+                Гарантируем высочайшую безопасность и надёжность в соответствии с международными стандартами качества.
+              </div>
+            </div>
+            <img class="slider__img" src="img/slider/1.jpg" alt="slider-photo">
+          </div>
+          <div class="slider__slide swiper-slide">
+            <div class="slider__content container">
+              <a class="slider__link" href="#">
+                Перейти в каталог
+                <img src="img/icons/arrow.svg" alt="icon-arrow">
+              </a>
+              <div class="slider__title">
+                Изысканные смесители для вашего интерьера
+              </div>
+              <div class="slider__text">
+                Гарантируем высочайшую безопасность и надёжность в соответствии с международными стандартами качества.
+              </div>
+            </div>
+            <img class="slider__img" src="img/slider/2.jpg" alt="slider-photo">
+          </div>
+          <div class="slider__slide swiper-slide">
+            <div class="slider__content container">
+              <a class="slider__link" href="#">
+                Перейти в каталог
+                <img src="img/icons/arrow.svg" alt="icon-arrow">
+              </a>
+              <div class="slider__title">
+                Изысканные смесители для вашего интерьера
+              </div>
+              <div class="slider__text">
+                Гарантируем высочайшую безопасность и надёжность в соответствии с международными стандартами качества.
+              </div>
+            </div>
+            <img class="slider__img" src="img/slider/3.jpg" alt="slider-photo">
+          </div>
+          <div class="slider__slide swiper-slide">
+            <div class="slider__content container">
+              <a class="slider__link" href="#">
+                Перейти в каталог
+                <img src="img/icons/arrow.svg" alt="icon-arrow">
+              </a>
+              <div class="slider__title">
+                Изысканные смесители для вашего интерьера
+              </div>
+              <div class="slider__text">
+                Гарантируем высочайшую безопасность и надёжность в соответствии с международными стандартами качества.
+              </div>
+            </div>
+            <img class="slider__img" src="img/slider/4.jpg" alt="slider-photo">
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
 
+    </section>
 
   </main>
 
-  <footer></footer>
+  <footer class="footer">
+    <div class="footer__container container">
+      <div class="footer__column">
+        <div class="footer-logo">
+          <img src="img/logo.svg" alt="img-logo">
+        </div>
+        <a class="footer__btn button" href="#">
+          <img class="footer__btn-img" src="img/icons/whatsapp.svg" alt="icon-social">
+          <p class="footer__btn-text">Написать в WhatsApp</p>
+        </a>
+      </div>
+      <div class="footer__column">
+        <div class="footer__title">КАТАЛОГ</div>
+        <ul class="footer__list">
+          <li class="footer__link">
+            <a href="#">Смесители</a>
+          </li>
+          <li class="footer__link">
+            <a href="#">Душевые системы</a>
+          </li>
+          <li class="footer__link">
+            <a href="#">Душевые стойки</a>
+          </li>
+          <li class="footer__link">
+            <a href="#">Изливы</a>
+          </li>
+          <li class="footer__link">
+            <a href="#">Аксессуары</a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer__column">
+        <div class="footer__title">ДЛЯ КЛИЕНТА</div>
+        <ul class="footer__list">
+          <li class="footer__link">
+            <a href="#">Акции</a>
+          </li>
+          <li class="footer__link">
+            <a href="#">О компании</a>
+          </li>
+          <li class="footer__link">
+            <a href="#">Оплата и доставка</a>
+          </li>
+          <li class="footer__link">
+            <a href="#">Магазины</a>
+          </li>
+          <li class="footer__link">
+            <a href="#">Контакты</a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer__column">
+        <form class="footer__form">
+          <p class="footer__text">
+            Узнавайте об акциях и новостях первыми, подпишитесь на рассылку
+          </p>
+          <div class="footer__wrapper">
+            <input class="footer__input" type="text" placeholder="Электронная почта">
+            <button class="footer__button button" type="submit">
+              Подписаться
+              <img src="img/icons/arrow.svg" alt="icon-arrow">
+            </button>
+          </div>
+          <a class="footer__phone" href="tel:+79999999999">+7 999 999-99-99</a>
+          <a href="#">
+            <img class="footer__icon" src="img/icons/location.svg" alt="icon-location">
+            <span class="footer__address">г. Новосибирск, улица, дом, офис</span>
+          </a>
+        </form>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer__bottom-box container">
+        <div class="footer__bottom-copy">© DEMM RUBINETTERIA 2023</div>
+        <a href="" class="footer__bottom-offer">Договор оферты</a>
+        <a href="" class="footer__bottom-agreement">Пользовательское соглашение</a>
+      </div>
+    </div>
+  </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="/js/main.js"></script>
 </body>
 
