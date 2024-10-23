@@ -30,4 +30,13 @@ body {
   border-radius: 25px;
   color: #fff;
   font-weight: 500;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #003690;
+  }
+
+  &:active {
+    background-color: #122952;
+  }
 }
