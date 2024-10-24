@@ -22,7 +22,7 @@ body {
 
 .button {
   height: 50px;
-  max-width: 100%;
+  padding: 20px 30px;
   background-color: #213F74;
   display: flex;
   justify-content: center;
@@ -33,7 +33,7 @@ body {
   transition: background-color 0.3s;
 
   &:hover {
-    background-color: #003690;
+    background-color: #0448bc;
   }
 
   &:active {
