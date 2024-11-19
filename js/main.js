@@ -1,19 +1,33 @@
-new Swiper('.slider__swiper', {
+new Swiper(".slider__swiper", {
   pagination: {
-    el: '.swiper-pagination',
+    el: ".swiper-pagination",
     clickable: true,
   },
-})
+});
 
-const openPopUp = document.getElementById('open');
-const closePopUp = document.getElementById('close');
-const popUp = document.getElementById('popup');
+const bookCallBtn = document.getElementById("open");
+const closePopUp = document.getElementById("close");
+const popUp = document.getElementById("popup");
+const modalWindow = document.querySelector(".popup__container");
+const body = document.querySelector("body");
 
-openPopUp.addEventListener('click', function (e) {
-  e.preventDefault();
-  popUp.classList.add('active');
-})
+function addClass() {
+  popUp.classList.add("active");
+  body.classList.add("scroll-lock");
+}
+function removeClass() {
+  popUp.classList.remove("active");
+  body.classList.remove("scroll-lock");
+}
 
-closePopUp.addEventListener('click', () => {
-  popUp.classList.remove('active');
-})
+bookCallBtn.addEventListener("click", () => addClass());
+
+closePopUp.addEventListener("click", () => removeClass());
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") removeClass();
+});
+
+window.addEventListener("click", (e) => {
+  if (e.target === modalWindow) removeClass();
+});
