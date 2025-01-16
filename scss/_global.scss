@@ -10,29 +10,34 @@ body {
   flex-direction: column;
 }
 
+.no-scroll {
+  overflow-y: hidden;
+}
+
 .main {
   flex: 1 1 auto;
 }
 
 .container {
-  max-width: 1320px;
-  padding: 0 10px;
+  max-width: 1330px;
+  padding: 0 15px;
   margin: 0 auto;
 }
 
 .button {
   position: relative;
-  height: 50px;
+  height: 60px;
   padding: 20px 30px;
   background-color: #213F74;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 25px;
+  border-radius: 30px;
   color: #fff;
   font-weight: 500;
   transition: background-color 0.3s;
-  &::after{
+
+  &::after {
     content: url('../img/icons/arrow.svg');
     position: absolute;
     width: 5px;

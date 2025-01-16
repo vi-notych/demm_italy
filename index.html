@@ -29,25 +29,87 @@
               <a href="#">Контакты</a>
             </li>
           </ul>
-          <a class="header__account" href="#">Личный кабинет</a>
+          <a class="header__top-account" href="#">Личный кабинет</a>
         </nav>
       </div>
     </div>
     <div class="header__body container">
-      <a class="header__logo" href="index.html">
-        <img src="img/logo.svg" alt="img-logo">
-      </a>
-      <div class="header__search">
-        <input class="header__input" type="text" placeholder="Поиск по сайту..."></input>
+      <div class="header__body-logo">
+        <a href="index.html"></a>
+      </div>
+      <div class="header__body-search">
+        <input class="header__body-input" type="text" placeholder="Поиск по сайту..."></input>
         <button class="header__body-icon">
           <img src="img/icons/search.svg" alt="icon-search">
         </button>
       </div>
-      <div class="header__contact">
-        <a class="header__phone" href="tel:+79999999999">+7 999 999-99-99</a>
-        <p class="header__schedule">Звоните с 8:10 до 18:10</p>
+      <div class="header__body-contact">
+        <a class="header__body-phone" href="tel:+79999999999">+7 999 999-99-99</a>
+        <p class="header__body-schedule">Звоните с 8:10 до 18:10</p>
       </div>
       <button class="header__body-btn button" id="open">Заказать звонок</button>
+      <div class="header__mobile-nav">
+        <a class="header__top-account" href="#"></a>
+        <a class="header__top-cart">
+          <span>0</span>
+        </a>
+        <button class="header__mobile-btn">
+          <span></span>
+        </button>
+        <div class="header__mobile-menu">
+          <button class="header__mobile-catalog">Каталог</button>
+          <ul class="header__mobile-items">
+            <li class="header__mobile-item">
+              <a href="#">Смесители</a>
+            </li>
+            <li class="header__mobile-item">
+              <a href="#">Душевые системы</a>
+            </li>
+            <li class="header__mobile-item">
+              <a href="#">Душевые стойки</a>
+            </li>
+            <li class="header__mobile-item">
+              <a href="#">Изливы</a>
+            </li>
+            <li class="header__mobile-item">
+              <a href="#">Аксессуары</a>
+            </li>
+          </ul>
+          <ul class="header__mobile-list">
+            <li class="header__mobile-link">
+              <a href="#">Акции</a>
+            </li>
+            <li class="header__mobile-link">
+              <a href="#">О компании</a>
+            </li>
+            <li class="header__mobile-link">
+              <a href="#">Оплата и доставка</a>
+            </li>
+            <li class="header__mobile-link">
+              <a href="#">Магазины</a>
+            </li>
+            <li class="header__mobile-link">
+              <a href="#">Контакты</a>
+            </li>
+          </ul>
+          <a class="header__top-cart header__top-cart--menu">
+            <span>0</span>
+            <p class="header__top-cart--text">Корзина</p>
+          </a>
+          <a class="header__top-account header__top-account--menu" href="#">
+            <p class="header__top-account--text">Личный кабинет</p>
+          </a>
+          <div class="header__body-contact header__body-contact--menu">
+            <a class="header__body-phone" href="tel:+79999999999">+7 999 999-99-99</a>
+            <p class="header__body-schedule">Звоните с 8:10 до 18:10</p>
+          </div>
+          <button class="header__body-btn header__body-btn--menu button" id="open">Заказать звонок</button>
+          <a class="footer__btn footer__btn--menu button" href="#">
+            <img class="footer__btn-img" src="img/icons/whatsapp.svg" alt="icon-social">
+            <p class="footer__btn-text">Написать в WhatsApp</p>
+          </a>
+        </div>
+      </div>
     </div>
     <div class="header__bottom">
       <div class="header__bottom-container container">
@@ -271,6 +333,27 @@
                 </svg>
               </a>
             </div>
+            <div class="stock__item stock__item-replica">
+              <div class="stock__photo">
+                <img class="stock__img" src="img/stock/stock-1.jpg" alt="photo-stock">
+                <div class="stock__label">
+                  <p>Скидка</p>
+                  <span>-15%</span>
+                </div>
+              </div>
+              <div class="stock__data">Акция действует до 11.11.2023</div>
+              <div class="stock__subtitle">Скидка 15% на все смесители</div>
+              <div class="stock__text">
+                Предлагаем смесители для кухни, ванны, душа по низким ценам! Акция действует только на товары в наличии.
+              </div>
+              <a href="#" class="stock__link">
+                <span>Подробнее</span>
+                <svg width="5" height="8" viewBox="0 0 5 8" fill="none">
+                  <path d="M1 1L3.85858 3.85858C3.93668 3.93668 3.93668 4.06332 3.85858 4.14142L1 7" stroke="#213F74"
+                    stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -289,32 +372,35 @@
           </div>
         </div>
         <div class="about__content">
-          <div class="about__title">О компании</div>
-          <p class="about__text">
-            Компания DEMM, созданная в Марментино, провинция Брешиа, работает в сфере производства кранов и ванных
-            комнат в течение
-            последних 50 лет. Компания DEMM постоянно инвестирует в исследования и разработку новых продуктов с целью
-            обеспечения
-            максимальной эффективности при одновременном обеспечении качества и дизайна.
-          </p>
+          <div class="about__content-top">
+            <div class="about__title">О компании</div>
+            <p class="about__text">
+              Компания DEMM, созданная в Марментино, провинция Брешиа, работает в сфере производства кранов и ванных
+              комнат в течение
+              последних 50 лет. Компания DEMM постоянно инвестирует в исследования и разработку новых продуктов с целью
+              обеспечения
+              максимальной эффективности при одновременном обеспечении качества и дизайна.
+            </p>
+          </div>
           <blockquote class="about__blockguote">
             «Гарантируем высочайшую безопасность и надёжность в соответствии с международными стандартами качества»
           </blockquote>
-          <p class="about__text">
-            Мы производим обширную коллекцию изысканных и современных смесителей и душевых кабин. Изготавливаем
-            продукцию в очень
-            короткие сроки. Мы динамичны, дружелюбны и всегда рады сотрудничеству!
-          </p>
-          <a href="#" class="about__btn button">Подробнее</a>
+          <div class="about__content-bottom">
+            <p class="about__text">
+              Мы производим обширную коллекцию изысканных и современных смесителей и душевых кабин. Изготавливаем
+              продукцию в очень
+              короткие сроки. Мы динамичны, дружелюбны и всегда рады сотрудничеству!
+            </p>
+            <a href="#" class="about__btn button">Подробнее</a>
+          </div>
         </div>
-
     </section>
 
     <section class="form">
       <img class="form__img" src="img/form-bg.jpg" alt="photo">
       <div class="form__container container">
         <div class="form__logo">
-          <img src="img/logo-img.svg" alt="logo">
+          <img src="img/logo/logo-img.svg" alt="logo">
         </div>
         <div class="form__title">Остались вопросы?</div>
         <div class="form__text">
@@ -341,70 +427,70 @@
 
   <footer class="footer">
     <div class="footer__container container">
-      <div class="footer__column">
-        <a href="index.html" class="footer-logo">
-          <img src="img/logo.svg" alt="img-logo">
-        </a>
-        <a class="footer__btn button" href="#">
-          <img class="footer__btn-img" src="img/icons/whatsapp.svg" alt="icon-social">
-          <p class="footer__btn-text">Написать в WhatsApp</p>
-        </a>
+      <div class="footer__left">
+        <a href="index.html" class="footer__logo"></a>
       </div>
-      <div class="footer__column">
-        <div class="footer__title">КАТАЛОГ</div>
-        <ul class="footer__list">
-          <li class="footer__link">
-            <a href="#">Смесители</a>
-          </li>
-          <li class="footer__link">
-            <a href="#">Душевые системы</a>
-          </li>
-          <li class="footer__link">
-            <a href="#">Душевые стойки</a>
-          </li>
-          <li class="footer__link">
-            <a href="#">Изливы</a>
-          </li>
-          <li class="footer__link">
-            <a href="#">Аксессуары</a>
-          </li>
-        </ul>
-      </div>
-      <div class="footer__column">
-        <div class="footer__title">ДЛЯ КЛИЕНТА</div>
-        <ul class="footer__list">
-          <li class="footer__link">
-            <a href="#">Акции</a>
-          </li>
-          <li class="footer__link">
-            <a href="#">О компании</a>
-          </li>
-          <li class="footer__link">
-            <a href="#">Оплата и доставка</a>
-          </li>
-          <li class="footer__link">
-            <a href="#">Магазины</a>
-          </li>
-          <li class="footer__link">
-            <a href="#">Контакты</a>
-          </li>
-        </ul>
-      </div>
-      <div class="footer__column">
-        <form class="footer__form">
-          <p class="footer__text">
-            Узнавайте об акциях и новостях первыми, подпишитесь на рассылку
-          </p>
-          <div class="footer__wrapper">
-            <input class="footer__input" type="text" placeholder="Электронная почта">
-            <button class="footer__button button" type="submit">Подписаться</button>
-          </div>
-          <a class="footer__phone" href="tel:+79999999999">+7 999 999-99-99</a>
-          <a href="#">
-            <img class="footer__icon" src="img/icons/location.svg" alt="icon-location">
-            <span class="footer__address">г. Новосибирск, улица, дом, офис</span>
+      <div class="footer__right">
+        <div class="footer__column">
+          <div class="footer__title">КАТАЛОГ</div>
+          <ul class="footer__list">
+            <li class="footer__link">
+              <a href="#">Смесители</a>
+            </li>
+            <li class="footer__link">
+              <a href="#">Душевые системы</a>
+            </li>
+            <li class="footer__link">
+              <a href="#">Душевые стойки</a>
+            </li>
+            <li class="footer__link">
+              <a href="#">Изливы</a>
+            </li>
+            <li class="footer__link">
+              <a href="#">Аксессуары</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer__column">
+          <div class="footer__title">ДЛЯ КЛИЕНТА</div>
+          <ul class="footer__list">
+            <li class="footer__link">
+              <a href="#">Акции</a>
+            </li>
+            <li class="footer__link">
+              <a href="#">О компании</a>
+            </li>
+            <li class="footer__link">
+              <a href="#">Оплата и доставка</a>
+            </li>
+            <li class="footer__link">
+              <a href="#">Магазины</a>
+            </li>
+            <li class="footer__link">
+              <a href="#">Контакты</a>
+            </li>
+          </ul>
+          <a class="footer__btn button" href="#">
+            <img class="footer__btn-img" src="img/icons/whatsapp.svg" alt="icon-social">
+            <p class="footer__btn-text">Написать в WhatsApp</p>
           </a>
-        </form>
+        </div>
+        <div class="footer__column">
+          <form class="footer__form">
+            <p class="footer__text">
+              Узнавайте об акциях и новостях первыми, подпишитесь на рассылку
+            </p>
+            <div class="footer__wrapper">
+              <input class="footer__input" type="text" placeholder="Электронная почта">
+              <button class="footer__button button" type="submit">Подписаться</button>
+            </div>
+            <a class="footer__phone" href="tel:+79999999999">+7 999 999-99-99</a>
+            <a class="footer__address" href="#">
+              <img class="footer__icon" src="img/icons/location.svg" alt="icon-location">
+              <span>г. Новосибирск, улица, дом, офис</span>
+            </a>
+          </form>
+        </div>
       </div>
     </div>
     <div class="footer__bottom">
