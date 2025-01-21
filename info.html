@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ua">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css?family=Inter:regular,500,600,700&display=swap");
+
+    *,
+    *:before,
+    *:after {
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #adc4a8;
+      font-family: Inter;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 768px;
+      padding: 0 15px;
+      margin: 0 auto;
+      text-align: center;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .title {
+      height: 40px;
+      width: 100%;
+      border-radius: 5px;
+      align-content: center;
+      text-transform: uppercase;
+      font-size: 22px;
+      font-weight: 500;
+      margin: 40px 0 20px;
+      border: 1px solid #cecccc;
+      background-color: #fff;
+      box-shadow: 2px 4px 5px 2px rgba(96, 96, 96, 0.5);
+    }
+
+    .btn {
+      border-radius: 25px;
+      border: 5px solid #f4f1dc;
+      background-color: #f4f1dc;
+      height: 75px;
+      max-width: 155px;
+      padding: 0 5px;
+      font-family: Inter;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.5;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10%;
+      box-shadow: inset 0px 5px 10px 2px rgba(37, 37, 36, 0.5);
+    }
+
+    .wrapper {
+      width: 100%;
+      margin-bottom: 40px;
+      border-radius: 5px;
+      background-color: #fff;
+      box-shadow: 2px 4px 5px 2px rgba(96, 96, 96, 0.5);
+    }
+
+    .content__row {
+      font-size: 12px;
+      font-weight: 400;
+      text-align: start;
+      height: 22px;
+      display: flex;
+      border-bottom: 0.1px solid #cecccc;
+    }
+
+    .content__property {
+      flex: 1 1 30%;
+      align-content: end;
+      padding-left: 5px;
+      border-right: 0.1px solid #cecccc;
+    }
+
+    .content__info {
+      flex: 1 1 70%;
+      align-content: end;
+      padding-left: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h3 class="title">Інформація про товар</h3>
+    <div class="wrapper">
+      <div class="content">
+        <div class="content__row">
+          <div class="content__property">Назва товару</div>
+          <div class="content__info">Електрокабель UTP 330 м</div>
+        </div>
+        <div class="content__row">
+          <div class="content__property">Артикул</div>
+          <div class="content__info">675817909487801</div>
+        </div>
+        <div class="content__row">
+          <div class="content__property">Цiна роздiбна</div>
+          <div class="content__info">155 грн</div>
+        </div>
+        <div class="content__row">
+          <div class="content__property">Цiна оптова</div>
+          <div class="content__info">130 грн</div>
+        </div>
+        <div class="content__row">
+          <div class="content__property">Цiна акцiйна</div>
+          <div class="content__info">130грн</div>
+        </div>
+        <div class="content__row">
+          <div class="content__property"></div>
+          <div class="content__info"></div>
+        </div>
+        <div class="content__row">
+          <div class="content__property"></div>
+          <div class="content__info"></div>
+        </div>
+        <div class="content__row">
+          <div class="content__property"></div>
+          <div class="content__info"></div>
+        </div>
+        <div class="content__row">
+          <div class="content__property"></div>
+          <div class="content__info"></div>
+        </div>
+        <div class="content__row">
+          <div class="content__property"></div>
+          <div class="content__info"></div>
+        </div>
+      </div>
+    </div>
+    <div class="btn-box">
+      <div class="button btn">
+        <a class="link">Додати товар до замовлення</a>
+      </div>
+    </div>
+</body>
+
+</html>

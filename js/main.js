@@ -1,3 +1,8 @@
+import { useDynamicAdapt } from "./dynamicAdapt.js";
+
+//запускаем динамичкский адаптив
+useDynamicAdapt();
+
 //слайдер
 new Swiper(".slider__swiper", {
   pagination: {
@@ -52,7 +57,7 @@ navBtn.addEventListener('click', function () {
 
 //Каталог
 const catalogBtn = document.querySelector('.header__mobile-catalog');
-const catalogList = document.querySelector('.header__mobile-items');
+const catalogList = document.querySelector(".header__bottom-list");
 catalogBtn.addEventListener('click', function (){
   catalogBtn.classList.toggle('open');
   catalogList.classList.toggle('open');

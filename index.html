@@ -15,7 +15,10 @@
     <div class="header__top">
       <div class="header__top-container container">
         <nav class="header__top-menu">
-          <ul class="header__top-list">
+          <ul data-da=".header__mobile-menu,768,1" class="header__top-list">
+            <li class="header__top-link header__top-link_action">
+              <a href="#">Акции</a>
+            </li>
             <li class="header__top-link">
               <a href="#">О компании</a>
             </li>
@@ -43,11 +46,11 @@
           <img src="img/icons/search.svg" alt="icon-search">
         </button>
       </div>
-      <div class="header__body-contact">
+      <div data-da=".header__mobile-menu,768,4" class="header__body-contact header__body-contact--menu">
         <a class="header__body-phone" href="tel:+79999999999">+7 999 999-99-99</a>
         <p class="header__body-schedule">Звоните с 8:10 до 18:10</p>
       </div>
-      <button class="header__body-btn button" id="open">Заказать звонок</button>
+      <button data-da=".header__mobile-menu,768,5" class="header__body-btn header__body-btn--menu button" id="open">Заказать звонок</button>
       <div class="header__mobile-nav">
         <a class="header__top-account" href="#"></a>
         <a class="header__top-cart">
@@ -58,40 +61,6 @@
         </button>
         <div class="header__mobile-menu">
           <button class="header__mobile-catalog">Каталог</button>
-          <ul class="header__mobile-items">
-            <li class="header__mobile-item">
-              <a href="#">Смесители</a>
-            </li>
-            <li class="header__mobile-item">
-              <a href="#">Душевые системы</a>
-            </li>
-            <li class="header__mobile-item">
-              <a href="#">Душевые стойки</a>
-            </li>
-            <li class="header__mobile-item">
-              <a href="#">Изливы</a>
-            </li>
-            <li class="header__mobile-item">
-              <a href="#">Аксессуары</a>
-            </li>
-          </ul>
-          <ul class="header__mobile-list">
-            <li class="header__mobile-link">
-              <a href="#">Акции</a>
-            </li>
-            <li class="header__mobile-link">
-              <a href="#">О компании</a>
-            </li>
-            <li class="header__mobile-link">
-              <a href="#">Оплата и доставка</a>
-            </li>
-            <li class="header__mobile-link">
-              <a href="#">Магазины</a>
-            </li>
-            <li class="header__mobile-link">
-              <a href="#">Контакты</a>
-            </li>
-          </ul>
           <a class="header__top-cart header__top-cart--menu">
             <span>0</span>
             <p class="header__top-cart--text">Корзина</p>
@@ -99,11 +68,6 @@
           <a class="header__top-account header__top-account--menu" href="#">
             <p class="header__top-account--text">Личный кабинет</p>
           </a>
-          <div class="header__body-contact header__body-contact--menu">
-            <a class="header__body-phone" href="tel:+79999999999">+7 999 999-99-99</a>
-            <p class="header__body-schedule">Звоните с 8:10 до 18:10</p>
-          </div>
-          <button class="header__body-btn header__body-btn--menu button" id="open">Заказать звонок</button>
           <a class="footer__btn footer__btn--menu button" href="#">
             <img class="footer__btn-img" src="img/icons/whatsapp.svg" alt="icon-social">
             <p class="footer__btn-text">Написать в WhatsApp</p>
@@ -119,7 +83,7 @@
               <img src="img/icons/stock.svg" alt="icon-stock">
               <span>Акции</span>
             </button>
-            <ul class="header__bottom-list">
+            <ul  data-da=".header__mobile-menu,768,1" class="header__bottom-list">
               <li class="header__bottom-link">
                 <a href="#">Смесители</a>
               </li>
@@ -534,7 +498,7 @@
 
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="/js/main.js"></script>
+  <script type="module" src="/js/main.js"></script>
 </body>
 
 </html>

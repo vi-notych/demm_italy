@@ -158,6 +158,9 @@ body {
   font-size: 15px;
   line-height: 1.35;
 }
+.header__top-link_action {
+  display: none;
+}
 .header__top-link:not(:last-child) {
   margin-right: 40px;
 }
@@ -316,6 +319,7 @@ body {
   display: flex;
   align-items: center;
   margin-left: 40px;
+  line-height: 1.5;
 }
 .header__bottom-link a {
   color: #fff;
@@ -803,7 +807,7 @@ body {
   margin-bottom: 20px;
 }
 .form__title {
-  font-size: 46px;
+  font-size: calc(28px + 1.40625vw);
   font-weight: 500;
   line-height: 1.05;
   letter-spacing: -1.8px;
@@ -1444,45 +1448,27 @@ body {
     top: 10px;
     color: #122952;
   }
-  .header__mobile-items {
-    pointer-events: none;
-    max-height: 0px;
-    transition: all 0.3s;
-    opacity: 0;
-  }
-  .header__mobile-items.open {
-    pointer-events: auto;
-    padding-top: 5px;
-    max-height: 170px;
-    opacity: 1;
-    transition: all 0.3s;
-  }
-  .header__mobile-item {
-    margin-bottom: 7px;
-  }
-  .header__mobile-item a {
-    color: #213F74;
-  }
-  .header__mobile-item a:hover {
-    color: #0448bc;
-  }
-  .header__mobile-list {
+  .header__top-list {
+    flex-direction: column;
     margin-bottom: 60px;
   }
-  .header__mobile-link {
+  .header__top-link {
     display: block;
     font-size: 20px;
     padding: 12px 0;
     border-top: 1px solid #E5E9EC;
   }
-  .header__mobile-link:last-child {
+  .header__top-link:not(:last-child) {
+    margin-right: 0;
+  }
+  .header__top-link:last-child {
     border-bottom: 1px solid #E5E9EC;
   }
-  .header__mobile-link a {
+  .header__top-link a {
     color: #122952;
     font-weight: 500;
   }
-  .header__mobile-link a:hover {
+  .header__top-link a:hover {
     color: #0448bc;
   }
   .header__body-contact--menu, .header__body-btn--menu {
@@ -1547,6 +1533,32 @@ body {
     transform: rotate(-45deg);
     top: 25px;
     transition: transform 0.3s 0.15s, top 0.3s;
+  }
+  .header__bottom-list {
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    max-height: 0px;
+    transition: all 0.3s;
+    opacity: 0;
+  }
+  .header__bottom-list.open {
+    pointer-events: auto;
+    padding-top: 5px;
+    max-height: 170px;
+    opacity: 1;
+    transition: all 0.3s;
+  }
+  .header__bottom-link {
+    margin-bottom: 10px;
+    margin-left: 0;
+  }
+  .header__bottom-link a {
+    color: #213F74;
+  }
+  .header__bottom-link a:hover {
+    color: #0448bc;
+    text-decoration: none;
   }
   .header .footer__btn--menu {
     position: relative;
@@ -1617,9 +1629,10 @@ body {
   .about__btn {
     margin-top: 0;
     margin-left: 30px;
+    min-width: 150px;
   }
   .form__title {
-    font-size: 36px;
+    font-size: calc(28px + 30.6 * (100vw - 360px) / 1280);
   }
   .footer__right {
     max-width: 72.972972973%;
@@ -1738,11 +1751,19 @@ body {
     width: 40px;
     height: 40px;
     border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .header__top-account--text {
+    font-size: 14px;
+    left: 55px;
   }
   .header__top-account::before {
     content: url("../img/icons/user.svg");
     top: 7px;
     left: 9px;
+  }
+  .header__top-link {
+    font-size: 18px;
   }
   .header__body {
     height: 60px;
@@ -1794,6 +1815,9 @@ body {
     top: 0px;
     right: 0px;
   }
+  .header__bottom-link {
+    font-size: 16px;
+  }
   .header__top-cart {
     width: 40px;
     height: 40px;
@@ -1828,16 +1852,16 @@ body {
     width: 16px;
     height: 1.6px;
     top: 14px;
-    left: 12.5px;
+    left: 11.5px;
   }
   .header__mobile-btn::after {
-    top: 25px;
+    top: 26px;
   }
   .header__mobile-btn span {
     width: 16px;
     height: 1.6px;
-    top: 19.5px;
-    left: 12.5px;
+    top: 20px;
+    left: 11.5px;
   }
   .header__mobile-menu {
     width: 75%;
@@ -1849,7 +1873,7 @@ body {
   }
   .header__mobile-catalog {
     padding: 10.5px 0;
-    font-size: 16px;
+    font-size: 18px;
   }
   .header__mobile-catalog::after {
     top: 15px;
@@ -1864,13 +1888,6 @@ body {
   .header__mobile-link {
     font-size: 16px;
     padding: 8px 0;
-  }
-  .header__top-account {
-    margin-bottom: 20px;
-  }
-  .header__top-account--text {
-    font-size: 14px;
-    left: 55px;
   }
   .slider__title {
     font-size: 28px;
@@ -1935,9 +1952,6 @@ body {
   }
   .about__btn::after {
     top: 17px;
-  }
-  .form__title {
-    font-size: 26px;
   }
   .footer__button {
     color: transparent;

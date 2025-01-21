@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ua">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css?family=Inter:regular,500,600,700&display=swap");
+
+    body {
+      background-color: #b6c5b3;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 768px;
+      padding: 0 15px;
+      margin: 0 auto;
+      text-align: center;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .btn {
+      border-radius: 25px;
+      border: 5px solid #f4f1dc;
+      background-color: #f4f1dc;
+      height: 75px;
+      font-family: Inter;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.5;
+      text-transform: uppercase;
+       display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgb(27, 26, 26);
+      margin-bottom: 10%;
+      box-shadow: inset 0px 5px 10px 2px rgba(37, 37, 36, 0.5);
+    }
+
+    .btn__info {
+      background-color: rgb(124, 175, 243);
+      border-color: rgb(124, 175, 243);
+      margin: 20% 0;
+      font-size: 20px;
+      max-width: 600px;
+      width: 96%;
+    }
+
+    .wrapper {
+      width: 100%;
+      display: flex;
+      gap: 5%;
+    }
+
+    .column {
+      flex: 1 1 45%;
+    }
+
+    .link {
+      height: 90%;
+      width: 90%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="btn__info btn">
+      <a class="link">Інформація про товар</a>
+    </div>
+    <div class="wrapper">
+      <div class="column">
+        <div class="button btn">
+          <a class="link">Cтворити замовлення</a>
+        </div>
+      </div>
+      <div class="column">
+        <div class="button btn">
+          <a class="link">Зібрати замовлення</a>
+        </div>
+        <div class="button btn">
+          <a class="link">Приходування</a>
+        </div>
+        <div class="button btn">
+          <a class="link">Інвентаризація</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
