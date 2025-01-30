@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Demm</title>
+  <title>Demm-Home</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
@@ -15,7 +15,7 @@
     <div class="header__top">
       <div class="header__top-container container">
         <nav class="header__top-menu">
-          <ul data-da=".header__mobile-menu,768,1" class="header__top-list">
+          <ul data-da=".header__mobile-menu,768,2" class="header__top-list">
             <li class="header__top-link header__top-link_action">
               <a href="#">Акции</a>
             </li>
@@ -61,6 +61,23 @@
         </button>
         <div class="header__mobile-menu">
           <button class="header__mobile-catalog">Каталог</button>
+          <ul class="header__bottom-list">
+            <li class="header__bottom-link">
+              <a href="#">Смесители</a>
+            </li>
+            <li class="header__bottom-link">
+              <a href="#">Душевые системы</a>
+            </li>
+            <li class="header__bottom-link">
+              <a href="#">Душевые стойки</a>
+            </li>
+            <li class="header__bottom-link">
+              <a href="#">Изливы</a>
+            </li>
+            <li class="header__bottom-link">
+              <a href="#">Аксессуары</a>
+            </li>
+          </ul>
           <a class="header__top-cart header__top-cart--menu">
             <span>0</span>
             <p class="header__top-cart--text">Корзина</p>
@@ -83,7 +100,7 @@
               <img src="img/icons/stock.svg" alt="icon-stock">
               <span>Акции</span>
             </button>
-            <ul  data-da=".header__mobile-menu,768,1" class="header__bottom-list">
+            <ul class="header__bottom-list">
               <li class="header__bottom-link">
                 <a href="#">Смесители</a>
               </li>
@@ -234,7 +251,7 @@
         <div class="stock__wrapper">
           <div class="stock__name">
             <div class="stock__title">Актуальные акции</div>
-            <a href="#" class="stock__btn button">Все акции</a>
+            <a href="#" class="stock__btn button button__arrow">Все акции</a>
           </div>
           <div class="stock__items">
             <div class="stock__item">
@@ -355,7 +372,7 @@
               продукцию в очень
               короткие сроки. Мы динамичны, дружелюбны и всегда рады сотрудничеству!
             </p>
-            <a href="#" class="about__btn button">Подробнее</a>
+            <a href="#" class="about__btn button button__arrow">Подробнее</a>
           </div>
         </div>
     </section>
@@ -396,7 +413,9 @@
       </div>
       <div class="footer__right">
         <div class="footer__column">
-          <div class="footer__title">КАТАЛОГ</div>
+          <div class="footer__title">
+            <a class="footer__catalog-link" href="catalog.html">КАТАЛОГ</a>
+          </div>
           <ul class="footer__list">
             <li class="footer__link">
               <a href="#">Смесители</a>
@@ -446,7 +465,7 @@
             </p>
             <div class="footer__wrapper">
               <input class="footer__input" type="text" placeholder="Электронная почта">
-              <button class="footer__button button" type="submit">Подписаться</button>
+              <button class="footer__button button button__arrow" type="submit">Подписаться</button>
             </div>
             <a class="footer__phone" href="tel:+79999999999">+7 999 999-99-99</a>
             <a class="footer__address" href="#">

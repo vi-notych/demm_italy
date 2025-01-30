@@ -1,9 +1,10 @@
 import { useDynamicAdapt } from "./dynamicAdapt.js";
 
-//запускаем динамичкский адаптив
+//====== Динамичкский адаптив =============================
 useDynamicAdapt();
 
-//слайдер
+//======== Cлайдер ========================================
+//=== главная страница
 new Swiper(".slider__swiper", {
   pagination: {
     el: ".swiper-pagination",
@@ -11,13 +12,12 @@ new Swiper(".slider__swiper", {
   },
 });
 
-//popup
+//========= Popup ===========================================
 const bookCallBtn = document.getElementById("open");
 const closePopUp = document.getElementById("close");
 const popUp = document.getElementById("popup");
 const modalWindow = document.querySelector(".popup__container");
 const body = document.querySelector("body");
-
 //функция добавляяет класс актив popup и отключает скрол экрана
 function addClass() {
   popUp.classList.add("active");
@@ -28,11 +28,11 @@ function removeClass() {
   popUp.classList.remove("active");
   body.classList.remove("scroll-lock");
 }
-
-//включаем popup кнопкой 'Заказать звонок'
+//===== включаем popup
+// кнопкой 'Заказать звонок'
 bookCallBtn.addEventListener("click", () => addClass());
 
-//выключаем popup 
+//====== выключаем popup
 //кнопкой "close"
 closePopUp.addEventListener("click", () => removeClass());
 //нажатием на кнопку "Escape"
@@ -44,21 +44,134 @@ window.addEventListener("click", (e) => {
   if (e.target === modalWindow) removeClass();
 });
 
-
-//Бургер-меню
-const navBtn = document.querySelector('.header__mobile-btn');
-const Body = document.querySelector('body');
+//=========== Бургер-меню ========================================
+const navBtn = document.querySelector(".header__mobile-btn");
+const Body = document.querySelector("body");
 const headerNav = document.querySelector(".header__mobile-menu");
-navBtn.addEventListener('click', function () {
-  body.classList.toggle('no-scroll');
-  headerNav.classList.toggle('active');
-  navBtn.classList.toggle('active');
-})
+navBtn.addEventListener("click", function () {
+  body.classList.toggle("no-scroll");
+  headerNav.classList.toggle("active");
+  navBtn.classList.toggle("active");
+});
 
-//Каталог
-const catalogBtn = document.querySelector('.header__mobile-catalog');
+//============== Выпадающий список ==============================
+//=== mobail-menu ====//
+const catalogBtn = document.querySelector(".header__mobile-catalog");
 const catalogList = document.querySelector(".header__bottom-list");
-catalogBtn.addEventListener('click', function (){
-  catalogBtn.classList.toggle('open');
-  catalogList.classList.toggle('open');
-})
+catalogBtn.addEventListener("click", function () {
+  catalogBtn.classList.toggle("open");
+  catalogList.classList.toggle("open");
+});
+
+//===== filter =======//
+//определяем кнопки фильтров
+const filterBtn = document.querySelectorAll(".filter__btn");
+//при нажатии на кнопку открываем и скрываем фильтр
+filterBtn.forEach((item) => {
+  item.addEventListener("click", (e) => {
+    //находим и активируем кнопку по которой кликнули
+    const btn = e.target;
+    btn.classList.toggle("open");
+    //ищем соседний элемент и проверяем наличие у элемента класса 'filter__items' или 'catalog__btn-wrap'
+    const list = btn.nextElementSibling;
+    if (
+      list &&
+      (list.classList.contains("filter__items") ||
+        list.classList.contains("catalog__btn-wrap"))
+    ) {
+      //если ширина экрана меньше 768px закрываем все открытые фильтры
+      if (window.innerWidth < 768) {
+        filterBtn.forEach((otherBtn) => {
+          const otherList = otherBtn.nextElementSibling;
+          if (
+            otherList &&
+            (list.classList.contains("filter__items") ||
+              list.classList.contains("catalog__btn-wrap")) &&
+            otherBtn !== btn
+          ) {
+            otherBtn.classList.remove("open");
+            otherList.classList.remove("open");
+          }
+        });
+      }
+      //открываем выбранный фильтр
+      list.classList.toggle("open");
+    }
+  });
+});
+
+//====== Price - slider =========================================
+//определяем ползунки нашего слайдера
+const rangeInput = document.querySelectorAll(".filter__range-input input");
+//определяем инпуты с ценами
+const priceInput = document.querySelectorAll(".filter__price-input input");
+//определяем шкалу на шего слайдера
+const progress = document.querySelector(".filter__price-progress");
+//задаем минимальный диапазон слайдера
+const priceGap = 10000;
+
+//меняем шкалу двигая ползунки
+rangeInput.forEach((input) => {
+  input.addEventListener("input", (e) => {
+    //получаем значения каждого ползунка и преобразовываем его в число
+    const minVal = parseInt(rangeInput[0].value);
+    const maxVal = parseInt(rangeInput[1].value);
+    //если диапазон шкалы больше минимального
+    if (maxVal - minVal > priceGap) {
+      //получяем крайние значения для шкалы слайдера
+      const percentMin = (minVal / rangeInput[0].max) * 100;
+      const percentMax = (maxVal / rangeInput[1].max) * 100;
+      //задаем динамические размеры шкалы слайдера left и right в scss
+      progress.style.left = percentMin + "%";
+      progress.style.right = 100 - percentMax + "%";
+      //задаем значения цены в верхних инпутах
+      priceInput[0].value = minVal;
+      priceInput[1].value = maxVal;
+    } else {
+      //если диапазон шкалы меньше минимального - ставим ограничитель
+      if (e.target.className === "filter__range-min") {
+        rangeInput[0].value = maxVal - priceGap;
+      } else {
+        rangeInput[1].value = minVal + priceGap;
+      }
+    }
+  });
+});
+
+//меняем шкалу цыфрами в инпутах
+priceInput.forEach(input => {
+  input.addEventListener("input", (e) => {
+    const minVal = parseInt(priceInput[0].value);
+    const maxVal = parseInt(priceInput[1].value);
+
+    if ((maxVal - minVal >= priceGap) && maxVal <= 100000) {
+      if (e.target.className === "filter__price-min") {
+        rangeInput[0].value = minVal;
+        const percentMin = (minVal / rangeInput[0].max) * 100;
+        progress.style.left = percentMin + "%";
+      } else {
+        rangeInput[1].value = maxVal;
+        const percentMax = (maxVal / rangeInput[1].max) * 100;
+        progress.style.right = 100 - percentMax + "%";
+      }
+    } 
+  });
+});
+
+
+//======= тень карточки при Hover на фото =======================
+// const photos = document.querySelectorAll(".product-cart__photo");
+
+// photos.forEach(photo => {
+//   photo.addEventListener('mouseenter',()=>{
+//     const cart = photo.parentElement;
+//     cart.classList.add('shadow')
+//   })
+// });
+
+// photos.forEach(photo => {
+//   photo.addEventListener("mouseleave", () => {
+//     const cart = photo.parentElement;
+//     cart.classList.remove("shadow");
+//   });
+// });
