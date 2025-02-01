@@ -1282,6 +1282,7 @@ body {
 .catalog__nav-products {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   margin-bottom: 25px;
 }
 .catalog__nav-category {
@@ -1293,22 +1294,31 @@ body {
 }
 .catalog__btn {
   height: 42px;
-}
-.catalog__btn-white {
-  height: 42px;
   background-color: #fff;
   color: #213F74;
+  white-space: nowrap;
+}
+.catalog__btn:hover {
+  background-color: #E7EDF5;
+}
+.catalog__btn.active {
+  background-color: #213F74;
+  color: #fff;
 }
 .catalog__btn-wrap {
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   gap: 10px;
+  width: 100%;
 }
-.catalog__nav-bottom {
-  margin-left: auto;
+.catalog__nav-top {
+  width: 100%;
 }
 .catalog__select {
   height: 25px;
   max-width: 115px;
+  margin-left: auto;
   font-size: 16px;
   font-weight: 500;
   background-color: #F3F5F7;
@@ -1321,6 +1331,14 @@ body {
   padding-bottom: 40px;
 }
 
+.filter__total {
+  font-size: 16px;
+  color: #797D91;
+  margin-bottom: 25px;
+}
+.filter__total span {
+  margin-left: 5px;
+}
 .filter__container:last-child {
   margin-bottom: 40px;
 }
@@ -1331,6 +1349,7 @@ body {
   color: #122952;
   border-top: 1px solid #DBE1E7;
   padding-top: 15px;
+  white-space: nowrap;
 }
 .filter__btn {
   cursor: pointer;
@@ -1366,7 +1385,10 @@ body {
   margin-bottom: 15px;
   max-height: 0px;
   opacity: 0;
-  transition: max-height 0.15s 0.15s, opacity 0.3s;
+  transition: max-height 0.3s, opacity 0.3s;
+}
+.filter__items_uppercase {
+  text-transform: uppercase;
 }
 .filter__items_price {
   pointer-events: auto;
@@ -1379,7 +1401,6 @@ body {
   padding-top: 15px;
   max-height: 400px;
   opacity: 1;
-  transition: max-height 0.3s, opacity 0.15s 0.15s;
 }
 .filter__item:not(:last-child) {
   margin-bottom: 5px;
@@ -1414,7 +1435,6 @@ body {
   font-size: 16px;
   color: #797D91;
   margin-left: 5px;
-  text-transform: uppercase;
 }
 .filter__label span {
   margin-left: 5px;
@@ -1899,18 +1919,11 @@ body {
     grid-template-columns: 210px 1fr;
     gap: 20px;
   }
-  .catalog__nav-products {
-    flex-direction: column;
-  }
-  .catalog__nav-top {
-    width: 100%;
-    margin-bottom: 25px;
-  }
   .filter__label {
     font-size: 15px;
   }
 }
-@media (max-width: 769px) {
+@media (max-width: 768px) {
   .header__top, .header__bottom, .header__body-contact, .header__body-btn {
     display: none;
   }
@@ -2247,6 +2260,9 @@ body {
   .footer__bottom-offer {
     flex: 0 1 27.027027027%;
   }
+  .catalog__title {
+    margin-bottom: 10px;
+  }
   .catalog__menu {
     padding-bottom: 25px;
   }
@@ -2255,21 +2271,20 @@ body {
   }
   .catalog__btn-wrap {
     position: absolute;
-    flex-direction: column;
     margin-bottom: 0;
     padding: 7px;
-    position: absolute;
-    top: 55px;
+    gap: 5px;
+    bottom: -265px;
     left: 20%;
     background-color: #fff;
     border-radius: 10px;
     max-width: 400px;
     width: 100%;
-    max-height: 0px;
+    height: 0px;
     box-shadow: 0px 0px 1dvi 5px #DBE1E7;
     z-index: 5;
     opacity: 0;
-    transition: max-height 0.3s, opacity 0.3s;
+    transition: height 0.3s, opacity 0.3s;
   }
   .catalog__btn-wrap .button {
     background-color: #F3F5F7;
@@ -2278,17 +2293,25 @@ body {
     justify-content: flex-start;
   }
   .catalog__btn-wrap.open {
-    max-height: 240px;
+    height: 200px;
+    overflow-y: scroll;
     opacity: 1;
+  }
+  .catalog__btn {
+    width: 100%;
+  }
+  .catalog__nav-top {
+    width: 0;
   }
   .catalog__nav-bottom {
     width: 100%;
-    margin-left: 0;
+    margin-top: 25px;
     display: flex;
     justify-content: space-between;
   }
   .filter {
     display: flex;
+    flex-wrap: wrap;
     justify-content: flex-start;
     gap: 10px;
     position: relative;
@@ -2305,11 +2328,6 @@ body {
   .filter__btn_price {
     cursor: pointer;
     pointer-events: auto;
-  }
-  .filter__items_price {
-    pointer-events: none;
-    max-height: 0px;
-    opacity: 0;
   }
   .filter__title {
     display: flex;
@@ -2340,6 +2358,8 @@ body {
   .filter__btn-category {
     display: flex;
     padding: 10px 35px 10px 40px;
+    background-color: #213F74;
+    color: #fff;
   }
   .filter__btn-category::before {
     content: url(../img/icons/icon-burger.svg);
@@ -2360,29 +2380,32 @@ body {
     transform: rotate(180deg);
   }
   .filter__items {
-    padding: 7px;
     position: absolute;
-    top: 55px;
+    padding: 7px;
+    bottom: -265px;
     left: 20%;
     background-color: #fff;
     border-radius: 10px;
     max-width: 400px;
+    height: 0px;
     width: 100%;
     box-shadow: 0px 0px 1dvi 5px #DBE1E7;
     z-index: 5;
-  }
-  .filter__items_price {
-    max-height: 0;
+    transition: height 0.3s, opacity 0.3s;
   }
   .filter__items.open {
-    max-height: 210px;
+    height: 200px;
     overflow-y: scroll;
+    padding-top: 7px;
+    margin-bottom: 0;
+  }
+  .filter__items_price {
+    pointer-events: none;
+    max-height: 0px;
+    opacity: 0;
   }
   .filter__price {
-    padding: 15px 0 25px;
-  }
-  .filter__reset {
-    margin-top: 0;
+    padding: 60px 0 25px;
   }
   .filter__reset {
     margin-top: 0;
@@ -2465,12 +2488,8 @@ body {
   }
 }
 @media (max-width: 650px) {
-  .filter {
-    flex-wrap: wrap;
-  }
   .catalog__btn-wrap,
   .filter__items {
-    top: 105px;
     left: 10%;
   }
   .catalog__nav-top {
@@ -2833,11 +2852,21 @@ body {
   .catalog__btn-category::before {
     top: 9px;
   }
+  .catalog__btn-wrap {
+    position: absolute;
+    bottom: -280px;
+  }
   .catalog__products {
     grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
   }
   .catalog__nav-top {
     margin-bottom: 15px;
+  }
+  .catalog__nav-bottom {
+    margin-top: 15px;
+  }
+  .catalog__select {
+    font-size: 12px;
   }
   .filter__title {
     height: 34px;
@@ -2850,9 +2879,6 @@ body {
   .filter__title.open::after {
     top: 9px;
   }
-  .filter__items.open {
-    left: 0;
-  }
   .filter__btn-category::before {
     top: 9px;
   }
@@ -2862,14 +2888,17 @@ body {
   .filter__btn-category.open::after {
     top: 12px;
   }
+  .filter__reset {
+    font-size: 12px;
+  }
   .filter .product-cart__btn-buy, .filter .product-cart__btn-basket, .filter .product-cart__btn-counter {
     height: 42px;
     font-size: 13px;
   }
   .catalog__btn-wrap,
   .filter__items {
-    top: 125px;
     left: 0;
+    bottom: -250px;
   }
   .product-cart__btn-buy, .product-cart__btn-basket, .product-cart__btn-counter {
     height: 42px;

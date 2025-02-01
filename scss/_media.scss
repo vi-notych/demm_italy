@@ -200,16 +200,6 @@
       grid-template-columns: (210px 1fr);
       gap: 20px;
     }
-
-    &__nav-products {
-      flex-direction: column;
-    }
-
-    &__nav-top {
-      width: 100%;
-      margin-bottom: 25px;
-    }
-
   }
 
   .filter {
@@ -220,7 +210,7 @@
 
 }
 
-@media (max-width:769px) {
+@media (max-width:768px) {
   .header {
 
     &__top,
@@ -642,6 +632,10 @@
   }
 
   .catalog {
+    &__title {
+      margin-bottom: 10px;
+    }
+
     &__menu {
       padding-bottom: 25px;
     }
@@ -652,21 +646,20 @@
 
     &__btn-wrap {
       position: absolute;
-      flex-direction: column;
       margin-bottom: 0;
       padding: 7px;
-      position: absolute;
-      top: 55px;
+      gap: 5px;
+      bottom: -265px;
       left: 20%;
       background-color: #fff;
       border-radius: 10px;
       max-width: 400px;
       width: 100%;
-      max-height: 0px;
+      height: 0px;
       box-shadow: 0px 0px 1dvi 5px $grey-active;
       z-index: 5;
       opacity: 0;
-      transition: max-height 0.3s, opacity 0.3s;
+      transition: height 0.3s, opacity 0.3s;
 
       .button {
         background-color: $grey;
@@ -676,14 +669,23 @@
       }
 
       &.open {
-        max-height: 240px;
+        height: 200px;
+        overflow-y: scroll;
         opacity: 1;
       }
     }
 
+    &__btn {
+      width: 100%;
+    }
+
+    &__nav-top {
+      width: 0;
+    }
+
     &__nav-bottom {
       width: 100%;
-      margin-left: 0;
+      margin-top: 25px;
       display: flex;
       justify-content: space-between;
     }
@@ -691,6 +693,7 @@
 
   .filter {
     display: flex;
+    flex-wrap: wrap;
     justify-content: flex-start;
     gap: 10px;
     position: relative;
@@ -712,12 +715,6 @@
         cursor: pointer;
         pointer-events: auto;
       }
-    }
-
-    &__items_price {
-      pointer-events: none;
-      max-height: 0px;
-      opacity: 0;
     }
 
     &__title {
@@ -753,7 +750,8 @@
     &__btn-category {
       display: flex;
       padding: 10px 35px 10px 40px;
-
+      background-color: $blue;
+      color: #fff;
 
       &::before {
         content: url(../img/icons/icon-burger.svg);
@@ -779,33 +777,35 @@
     }
 
     &__items {
-      padding: 7px;
       position: absolute;
-      top: 55px;
+      padding: 7px;
+      bottom: -265px;
       left: 20%;
       background-color: #fff;
       border-radius: 10px;
       max-width: 400px;
+      height: 0px;
       width: 100%;
       box-shadow: 0px 0px 1dvi 5px $grey-active;
       z-index: 5;
-
-      &_price {
-        max-height: 0;
-      }
+      transition: height 0.3s, opacity 0.3s;
     }
 
     &__items.open {
-      max-height: 210px;
+      height: 200px;
       overflow-y: scroll;
+      padding-top: 7px;
+      margin-bottom: 0;
+    }
+
+    &__items_price {
+      pointer-events: none;
+      max-height: 0px;
+      opacity: 0;
     }
 
     &__price {
-      padding: 15px 0 25px;
-    }
-
-    &__reset {
-      margin-top: 0;
+      padding: 60px 0 25px;
     }
 
     &__reset {
@@ -922,13 +922,9 @@
 }
 
 @media (max-width:650px) {
-  .filter {
-    flex-wrap: wrap;
-  }
 
   .catalog__btn-wrap,
   .filter__items {
-    top: 105px;
     left: 10%;
   }
 
@@ -1416,12 +1412,25 @@
       }
     }
 
+    &__btn-wrap {
+      position: absolute;
+      bottom: -280px;
+    }
+
     &__products {
       grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
     }
 
     &__nav-top {
       margin-bottom: 15px;
+    }
+
+    &__nav-bottom {
+      margin-top: 15px;
+    }
+
+    &__select {
+      font-size: 12px;
     }
   }
 
@@ -1440,10 +1449,6 @@
       }
     }
 
-    &__items.open {
-      left: 0;
-    }
-
     &__btn-category::before {
       top: 9px;
     }
@@ -1454,6 +1459,10 @@
 
     &__btn-category.open::after {
       top: 12px;
+    }
+
+    &__reset {
+      font-size: 12px;
     }
 
     .product-cart {
@@ -1469,8 +1478,8 @@
 
   .catalog__btn-wrap,
   .filter__items {
-    top: 125px;
     left: 0;
+    bottom: -250px;
   }
 
   .product-cart {
@@ -1487,6 +1496,7 @@
     &__list {
       gap: 15px;
     }
+
     &__arrow {
       width: 34px;
       height: 34px;
@@ -1504,6 +1514,7 @@
 
     &__link {
       font-size: 14px;
+
       &::after {
         width: 34px;
         height: 34px;

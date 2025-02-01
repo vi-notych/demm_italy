@@ -1,9 +1,9 @@
 import { useDynamicAdapt } from "./dynamicAdapt.js";
 
-//====== Динамичкский адаптив =============================
+//====== Динамичкский адаптив =================================
 useDynamicAdapt();
 
-//======== Cлайдер ========================================
+//======== Cлайдер ============================================
 //=== главная страница
 new Swiper(".slider__swiper", {
   pagination: {
@@ -12,7 +12,7 @@ new Swiper(".slider__swiper", {
   },
 });
 
-//========= Popup ===========================================
+//========= Popup =============================================
 const bookCallBtn = document.getElementById("open");
 const closePopUp = document.getElementById("close");
 const popUp = document.getElementById("popup");
@@ -71,6 +71,8 @@ filterBtn.forEach((item) => {
   item.addEventListener("click", (e) => {
     //находим и активируем кнопку по которой кликнули
     const btn = e.target;
+    console.log(btn);
+
     btn.classList.toggle("open");
     //ищем соседний элемент и проверяем наличие у элемента класса 'filter__items' или 'catalog__btn-wrap'
     const list = btn.nextElementSibling;
@@ -109,7 +111,6 @@ const priceInput = document.querySelectorAll(".filter__price-input input");
 const progress = document.querySelector(".filter__price-progress");
 //задаем минимальный диапазон слайдера
 const priceGap = 10000;
-
 //меняем шкалу двигая ползунки
 rangeInput.forEach((input) => {
   input.addEventListener("input", (e) => {
@@ -137,14 +138,13 @@ rangeInput.forEach((input) => {
     }
   });
 });
-
 //меняем шкалу цыфрами в инпутах
-priceInput.forEach(input => {
+priceInput.forEach((input) => {
   input.addEventListener("input", (e) => {
     const minVal = parseInt(priceInput[0].value);
     const maxVal = parseInt(priceInput[1].value);
 
-    if ((maxVal - minVal >= priceGap) && maxVal <= 100000) {
+    if (maxVal - minVal >= priceGap && maxVal <= 100000) {
       if (e.target.className === "filter__price-min") {
         rangeInput[0].value = minVal;
         const percentMin = (minVal / rangeInput[0].max) * 100;
@@ -154,10 +154,22 @@ priceInput.forEach(input => {
         const percentMax = (maxVal / rangeInput[1].max) * 100;
         progress.style.right = 100 - percentMax + "%";
       }
-    } 
+    }
   });
 });
 
+//формируем ID для input и FOR для label фильтров
+document.addEventListener("DOMContentLoaded", function () {
+  const filterInputs = document.querySelectorAll(".filter__input");
+  filterInputs.forEach((input, index) => {
+    const uniqueId = `input-${index}`;
+    input.setAttribute('id', uniqueId);
+    const label = input.nextElementSibling;
+    if (label) {
+      label.setAttribute('for', uniqueId);
+    }
+  });
+});
 
 //======= тень карточки при Hover на фото =======================
 // const photos = document.querySelectorAll(".product-cart__photo");
