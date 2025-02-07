@@ -1,18 +1,125 @@
 import { useDynamicAdapt } from "./dynamicAdapt.js";
 
-//====== Динамичкский адаптив =================================
+//====== Динамичкский АДАПТИВ =================================//
 useDynamicAdapt();
 
-//======== Cлайдер ============================================
-//=== главная страница
+//======== CЛАЙДЕРЫ ===========================================//
+//=== INDEX.HTML =================//
 new Swiper(".slider__swiper", {
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
   },
 });
+//=== CART.HTML ==================//
+//=== property__slider ============
+new Swiper(".slider-big__slider", {
+  direction: "horizontal",
+  //количество слайдов для показа
+  slidesPerView: 1,
+  navigation: {
+    nextEl: ".slider-big__next",
+    prevEl: ".slider-big__prev",
+  },
+  //минислайдер (превью)
+  thumbs: {
+    swiper: {
+      el: ".slider-small__slider",
+      spaceBetween: 15,
+      breakpoints: {
+        960: {
+          slidesPerView: 4,
+          direction: "horizontal",
+        },
+        650: {
+          slidesPerView: 3,
+          direction: "vertical",
+        },
+        0: {
+          spaceBetween: 10,
+          slidesPerView: 3,
+          direction: "horizontal",
+        },
+      },
+    },
+  },
+});
+//=== colection__slider ===========
+new Swiper(".colection__slider", {
+  //расположение слайдера/
+  direction: "horizontal",
+  //стрелки
+  navigation: {
+    nextEl: ".colection-next",
+    prevEl: ".colection-prev",
+  },
+  //навигация
+  pagination: {
+    el: ".colection-pagination",
+    //булеты
+    clickable: true,
+  },
+  //отключение слайдера, если слайдов меньше чем нужно
+  watchOverflow: true,
+  //петля - непрерывный цикл
+  loop: true,
+  //брейк поинты (адаптив)
+  breakpoints: {
+    960: {
+      //интервал между слайдами
+      spaceBetween: 24,
+      slidesPerView: 4,
+    },
+    700: {
+      spaceBetween: 20,
+      slidesPerView: 3,
+    },
+    320: {
+      spaceBetween: 10,
+      slidesPerView: 2,
+    },
+    0: {
+      spaceBetween: 10,
+      slidesPerView: 1,
+    },
+  },
+});
+//=== optional-slider ===========
+new Swiper(".optional__slider", {
+  navigation: {
+    nextEl: ".optional-next",
+    prevEl: ".optional-prev",
+  },
+  pagination: {
+    el: ".optional-pagination",
+    clickable: true,
+  },
+  loop: true,
+  breakpoints: {
+    1150: {
+      spaceBetween: 24,
+      slidesPerView: 4,
+    },
+    830: {
+      spaceBetween: 20,
+      slidesPerView: 3,
+    },
+    480: {
+      spaceBetween: 20,
+      slidesPerView: 2,
+    },
+    320: {
+      spaceBetween: 10,
+      slidesPerView: 2,
+    },
+    0: {
+      spaceBetween: 10,
+      slidesPerView: 1,
+    },
+  },
+});
 
-//========= Popup =============================================
+//========= POPUP =============================================//
 const bookCallBtn = document.getElementById("open");
 const closePopUp = document.getElementById("close");
 const popUp = document.getElementById("popup");
@@ -44,7 +151,7 @@ window.addEventListener("click", (e) => {
   if (e.target === modalWindow) removeClass();
 });
 
-//=========== Бургер-меню ========================================
+//=========== Бургер-МЕНЮ ========================================//
 const navBtn = document.querySelector(".header__mobile-btn");
 const Body = document.querySelector("body");
 const headerNav = document.querySelector(".header__mobile-menu");
@@ -54,8 +161,8 @@ navBtn.addEventListener("click", function () {
   navBtn.classList.toggle("active");
 });
 
-//============== Выпадающий список ==============================
-//=== mobail-menu ====//
+//============== Выпадающий СПИСОК ==============================//
+//=== mobail-menu ====
 const catalogBtn = document.querySelector(".header__mobile-catalog");
 const catalogList = document.querySelector(".header__bottom-list");
 catalogBtn.addEventListener("click", function () {
@@ -63,7 +170,7 @@ catalogBtn.addEventListener("click", function () {
   catalogList.classList.toggle("open");
 });
 
-//===== filter =======//
+//===== filter =======
 //определяем кнопки фильтров
 const filterBtn = document.querySelectorAll(".filter__btn");
 //при нажатии на кнопку открываем и скрываем фильтр
@@ -102,7 +209,7 @@ filterBtn.forEach((item) => {
   });
 });
 
-//====== Price - slider =========================================
+//====== Price - slider =========================================//
 //определяем ползунки нашего слайдера
 const rangeInput = document.querySelectorAll(".filter__range-input input");
 //определяем инпуты с ценами
@@ -163,10 +270,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const filterInputs = document.querySelectorAll(".filter__input");
   filterInputs.forEach((input, index) => {
     const uniqueId = `input-${index}`;
-    input.setAttribute('id', uniqueId);
+    input.setAttribute("id", uniqueId);
     const label = input.nextElementSibling;
     if (label) {
-      label.setAttribute('for', uniqueId);
+      label.setAttribute("for", uniqueId);
     }
   });
 });
