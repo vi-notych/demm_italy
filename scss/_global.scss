@@ -1,6 +1,5 @@
 @import "_vars";
 
-html,
 body {
   height: 100%;
   font-family: Inter;
@@ -42,6 +41,7 @@ body {
 
   &__arrow {
     padding-right: 30px;
+
     &::after {
       content: url('../img/icons/arrow.svg');
       position: absolute;
@@ -61,4 +61,31 @@ body {
     background-color: $dark-blue;
   }
 
+}
+
+.social-btn {
+  padding-left: 45px;
+  background-color: $grey;
+  width: 217px;
+  transition: background-color 0.3s;
+
+  &__text {
+    color: $blue;
+    white-space: nowrap;
+  }
+
+  &:hover {
+    background-color: $grey-hover;
+  }
+
+  &:active {
+    background-color: $grey-active;
+  }
+
+  &::after {
+    content: url(../img/icons/whatsapp.svg);
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
 }

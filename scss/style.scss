@@ -562,19 +562,19 @@
     width: 100%;
     top: 0;
     left: 0;
+  }
 
-    &--shadow,
-    &--cube {
-      position: absolute;
-      object-fit: cover;
-      height: 125%;
-      top: -16%;
-      left: 40%;
-    }
+  &__img-shadow,
+  &__img-cube {
+    position: absolute;
+    object-fit: cover;
+    height: 125%;
+    top: -16%;
+    left: 40%;
+  }
 
-    &--cube {
-      z-index: 1;
-    }
+  &__img-cube {
+    z-index: 1;
   }
 
   &__img-name {
@@ -931,36 +931,10 @@
   }
 
   &__btn {
-    border-radius: 30px;
-    padding: 20px;
-    height: 60px;
-    background-color: $grey;
-    width: 217px;
-    transition: background-color 0.3s;
     position: absolute;
     left: 15px;
     bottom: 80px;
 
-    &::after {
-      content: '';
-    }
-
-    &:hover {
-      background-color: $grey-hover;
-    }
-
-    &:active {
-      background-color: $grey-active;
-    }
-  }
-
-  &__btn-img {
-    margin-right: 5px;
-  }
-
-  &__btn-text {
-    color: $blue;
-    white-space: nowrap;
   }
 
   &__title {
@@ -1242,10 +1216,6 @@
   }
 }
 
-.scroll-lock {
-  overflow: hidden;
-}
-
 .breadcrumbs {
   background-color: $grey;
   padding: 25px 0;
@@ -1394,8 +1364,6 @@
   &__nav-top {
     width: 100%;
   }
-
-  &__nav-bottom {}
 
   &__select {
     height: 25px;
@@ -1570,6 +1538,7 @@
     text-align: center;
     -moz-appearance: none;
     -webkit-appearance: none;
+    appearance: none;
   }
 
   input[type="number"]::-webkit-outer-spin-button,
@@ -1580,6 +1549,7 @@
 
   input[type="number"] {
     -moz-appearance: textfield;
+    appearance: textfield;
   }
 
   &__price-separator {
@@ -1622,6 +1592,7 @@
     background: none;
     pointer-events: none;
     -webkit-appearance: none;
+    appearance: none;
   }
 
   input[type="range"] {
@@ -1666,7 +1637,7 @@
   }
 }
 
-.product-cart {
+.product-card {
   display: flex;
   flex-direction: column;
   padding: 20px;
@@ -1687,7 +1658,7 @@
     left: 20px;
     display: flex;
     gap: 5px;
-    z-index: 2;
+    z-index: 1;
   }
 
   &__sticker {
@@ -1843,7 +1814,7 @@
 
 }
 
-.cart-info {
+.card-info {
   display: flex;
   justify-content: space-between;
   font-size: 12px;
@@ -2035,6 +2006,8 @@
 
 .slider-big {
   margin-bottom: 15px;
+  position: relative;
+  z-index: 0;
 
   &__slider {
     height: 526px;
@@ -2275,6 +2248,7 @@
   top: 50%;
   border-radius: 50%;
   background-color: $beige;
+  z-index: 1;
 }
 
 .swiper-button-prev {
