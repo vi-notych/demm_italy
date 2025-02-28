@@ -1,8 +1,10 @@
 import { useDynamicAdapt } from "./dynamicAdapt.js";
+import { products } from "./products.js";
 
 //====== Динамичкский АДАПТИВ =================================//
 useDynamicAdapt();
 
+//====== функция запуска по страницам ========================//
 function init() {
   const currentPage = window.location.pathname;
   switch (currentPage) {
@@ -24,6 +26,7 @@ function init() {
       popup();
       dropDownFilter();
       priceFilter();
+      formationIdForInput();
       break;
     case "/catalog.html":
       burgerMenu();
@@ -31,12 +34,14 @@ function init() {
       popup();
       dropDownFilter();
       priceFilter();
+      formationIdForInput();
+      addProductCard();
       break;
     default:
       break;
   }
 }
-init();
+document.addEventListener("DOMContentLoader", init());
 
 //======== CЛАЙДЕРЫ ===========================================//
 function sliderIndex() {
@@ -287,12 +292,12 @@ function priceFilter() {
       }
     });
   });
-  //меняем шкалу цыфрами в инпутах
+  //меняем шкалу цифрами в инпутах
   priceInput.forEach((input) => {
     input.addEventListener("input", (e) => {
       const minVal = parseInt(priceInput[0].value);
       const maxVal = parseInt(priceInput[1].value);
-  
+
       if (maxVal - minVal >= priceGap && maxVal <= 100000) {
         if (e.target.className === "filter__price-min") {
           rangeInput[0].value = minVal;
@@ -306,8 +311,10 @@ function priceFilter() {
       }
     });
   });
-  
-  //формируем ID для input и FOR для label фильтров
+}
+
+//==== формируем автоID для input и FOR для label фильтров =====//
+function formationIdForInput() {
   document.addEventListener("DOMContentLoaded", function () {
     const filterInputs = document.querySelectorAll(".filter__input");
     filterInputs.forEach((input, index) => {
@@ -318,5 +325,62 @@ function priceFilter() {
         label.setAttribute("for", uniqueId);
       }
     });
+  });
+}
+
+//==== создаем разметку в catalog.html для product-card =======================//
+function addProductCard() {
+  //массив products имрортируем из файла "./products.js"
+  //находим контейнер для карточек
+  const productContainer = document.getElementById("product-container");
+  //обходим массив, создаем элементы "article" даем им класс "product-card" 
+  products.forEach((product) => {
+    const productCard = document.createElement("article");
+    productCard.classList.add("product-card");
+    //и добавляем в "article" разметку
+    productCard.innerHTML = `
+      <div class="product-card__stickers">
+        <div class="product-card__sticker product-card__sticker_new ${
+          product.stickerNew
+        }">Новинка</div>
+        <div class="product-card__sticker product-card__sticker_action ${
+          product.stickerAction
+        }">Акция</div>
+        <div class="product-card__sticker product-card__sticker_hit ${
+          product.stickerHit
+        }">Хит</div>
+      </div>
+      <a href="#" class="product-card__photo">
+        <img class="product-card__img" src=${product.img} alt="photo">
+      </a>
+      <div class="product-card__info card-info">
+        <div class="card-info__current">
+          <div class="card-info__have ${product.have}">В наличии</div>
+          <div class="card-info__not-have ${
+            product.notHave
+          }">Нет в наличии</div>
+        </div>
+        <p class="card-info__article">${product.article}</p>
+      </div>
+      <div class="product-card__text">${product.name}
+      </div>
+      <div class="product-card__collection">${product.collection}</div>
+      <div class="product-card__price ${product.price}">
+        <div class="product-card__current-price">${product.currentPrice.toLocaleString()} руб./шт</div>
+        <div class="product-card__old-price">${product.oldPrice.toLocaleString()} руб./шт</div>
+      </div>
+      <div class="product-card__btn-wrap">
+        <button class="product-card__btn-basket button ${
+          product.btnBasket
+        }">В корзину</button>
+        <button class="product-card__btn-counter button ${product.btnCounter}">
+          <span class="decrease">-</span>
+          <span class="counter">1</span>
+          <span class="increase">+</span>
+        </button>
+        <button class="product-card__btn-buy button">Купить в 1 клик</button>
+      </div>
+    `;
+    productContainer.appendChild(productCard);
   });
 }

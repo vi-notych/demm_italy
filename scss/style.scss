@@ -1725,11 +1725,11 @@
     align-items: center;
 
     &.active {
-      .product-cart__old-price {
+      .product-card__old-price {
         display: inline-block;
       }
 
-      .product-cart__current-price {
+      .product-card__current-price {
         color: red;
       }
     }
@@ -1776,6 +1776,7 @@
   &__btn-counter {
     width: calc(100% - 30px);
     height: 50px;
+    padding: 20px 10px;
     position: relative;
     background-color: $dark-blue;
     margin-bottom: 8px;
@@ -1783,6 +1784,19 @@
     display: flex;
     justify-content: space-between;
     margin-right: 30px;
+    &.button {
+      cursor: none;
+    }
+    .decrease,
+    .counter,
+    .increase {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
 
     &.disabled {
       display: none;

@@ -1620,10 +1620,10 @@ body {
   flex-wrap: wrap;
   align-items: center;
 }
-.product-card__price.active .product-cart__old-price {
+.product-card__price.active .product-card__old-price {
   display: inline-block;
 }
-.product-card__price.active .product-cart__current-price {
+.product-card__price.active .product-card__current-price {
   color: red;
 }
 .product-card__current-price {
@@ -1661,6 +1661,7 @@ body {
 .product-card__btn-counter {
   width: calc(100% - 30px);
   height: 50px;
+  padding: 20px 10px;
   position: relative;
   background-color: #122952;
   margin-bottom: 8px;
@@ -1668,6 +1669,19 @@ body {
   display: flex;
   justify-content: space-between;
   margin-right: 30px;
+}
+.product-card__btn-counter.button {
+  cursor: none;
+}
+.product-card__btn-counter .decrease,
+.product-card__btn-counter .counter,
+.product-card__btn-counter .increase {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 .product-card__btn-counter.disabled {
   display: none;
