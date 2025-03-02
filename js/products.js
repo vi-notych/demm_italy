@@ -13,8 +13,8 @@ export const products = [
     price: "active",
     currentPrice: 45220,
     oldPrice: 54600,
-    btnBasket: "disabled",
-    btnCounter: "",
+    btnBasket: "",
+    btnCounter: "disabled",
   },
   {
     id: 2,

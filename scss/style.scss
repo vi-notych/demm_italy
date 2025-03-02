@@ -1784,11 +1784,12 @@
     display: flex;
     justify-content: space-between;
     margin-right: 30px;
+
     &.button {
       cursor: none;
     }
+
     .decrease,
-    .counter,
     .increase {
       width: 50px;
       height: 50px;
@@ -1796,6 +1797,13 @@
       justify-content: center;
       align-items: center;
       cursor: pointer;
+    }
+
+    .counter {
+      width: 50px;
+      text-align: center;
+      color: #fff;
+      background-color: $dark-blue;
     }
 
     &.disabled {

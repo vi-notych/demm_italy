@@ -36,6 +36,7 @@ function init() {
       priceFilter();
       formationIdForInput();
       addProductCard();
+      counter();
       break;
     default:
       break;
@@ -328,12 +329,12 @@ function formationIdForInput() {
   });
 }
 
-//==== создаем разметку в catalog.html для product-card =======================//
+//==== создаем разметку в catalog.html для product-card =========//
 function addProductCard() {
   //массив products имрортируем из файла "./products.js"
   //находим контейнер для карточек
   const productContainer = document.getElementById("product-container");
-  //обходим массив, создаем элементы "article" даем им класс "product-card" 
+  //обходим массив, создаем элементы "article" даем им класс "product-card"
   products.forEach((product) => {
     const productCard = document.createElement("article");
     productCard.classList.add("product-card");
@@ -375,7 +376,7 @@ function addProductCard() {
         }">В корзину</button>
         <button class="product-card__btn-counter button ${product.btnCounter}">
           <span class="decrease">-</span>
-          <span class="counter">1</span>
+          <input class="counter" type="text" value="1"></input>
           <span class="increase">+</span>
         </button>
         <button class="product-card__btn-buy button">Купить в 1 клик</button>
@@ -384,3 +385,46 @@ function addProductCard() {
     productContainer.appendChild(productCard);
   });
 }
+
+//=== счетчик в корзину по клику на кнопку "КУПИТЬ В 1 КЛИК" ====//
+function counter(e) {
+  const cards = document.getElementById("product-container");
+  //запускаем прослушку по блоку с карточками
+  cards.addEventListener("click", function (e) {
+    //если клик по кнопке "купить в 1 клик"
+    if (e.target.classList.contains("product-card__btn-buy")) {
+      const buyBtn = e.target;
+      //находим  все соседние кнопки
+      const elements = buyBtn.parentNode.children;
+      //меняем у них класс "disabled"
+      for (const element of elements) {
+        //кнопка со счетчиком
+        if (element.classList.contains("product-card__btn-counter")) {
+          element.classList.toggle("disabled");
+          const counterBtn = element;
+          //если кнопка со счетчиком активна находим ее инпут
+          if (counterBtn.classList.contains("disabled")) {
+          } else {
+            let inputValue = counterBtn.querySelector(".counter").value;
+            //слушаем клики на + и - и меняем значение инпута по кликм
+            counterBtn.addEventListener("click", function (e) {
+              if (e.target.classList.contains("decrease")) {
+                inputValue = inputValue - 1;
+              }
+              if (e.target.classList.contains("increase")) {
+                inputValue = +inputValue + 1;
+              }
+              counterBtn.querySelector(".counter").value = inputValue;
+            });
+          }
+        }
+        //кнопка добавить в корзину
+        if (element.classList.contains("product-card__btn-basket")) {
+          element.classList.toggle("disabled");
+        }
+      }
+    }
+  });
+}
+
+

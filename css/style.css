@@ -1674,7 +1674,6 @@ body {
   cursor: none;
 }
 .product-card__btn-counter .decrease,
-.product-card__btn-counter .counter,
 .product-card__btn-counter .increase {
   width: 50px;
   height: 50px;
@@ -1682,6 +1681,12 @@ body {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+}
+.product-card__btn-counter .counter {
+  width: 50px;
+  text-align: center;
+  color: #fff;
+  background-color: #122952;
 }
 .product-card__btn-counter.disabled {
   display: none;
