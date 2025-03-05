@@ -27,6 +27,8 @@ function init() {
       dropDownFilter();
       priceFilter();
       formationIdForInput();
+      addProductCard();
+      counter();
       break;
     case "/catalog.html":
       burgerMenu();
@@ -177,7 +179,7 @@ function popup() {
   //функция убирает класс актив popup и включает скрол экрана
   function removeClass() {
     popUp.classList.remove("active");
-    body.classList.remove("scroll-lock");
+    body.classList.remove("no-scroll");
   }
   //===== включаем popup
   // кнопкой 'Заказать звонок'
@@ -387,7 +389,7 @@ function addProductCard() {
 }
 
 //=== счетчик в корзину по клику на кнопку "КУПИТЬ В 1 КЛИК" ====//
-function counter(e) {
+function counter() {
   const cards = document.getElementById("product-container");
   //запускаем прослушку по блоку с карточками
   cards.addEventListener("click", function (e) {

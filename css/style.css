@@ -63,7 +63,6 @@ button::-moz-focus-inner {
 a,
 a:visited {
   text-decoration: none;
-  color: inherit;
 }
 
 a:hover {
@@ -1607,12 +1606,12 @@ body {
 }
 .product-card__text {
   font-weight: 500;
-  margin-bottom: 8px;
+  margin-bottom: auto;
+  color: #122952;
 }
 .product-card__collection {
   color: #4D526C;
-  margin-top: auto;
-  margin-bottom: 8px;
+  margin: 8px 0px;
 }
 .product-card__price {
   margin-bottom: 8px;
@@ -2947,16 +2946,6 @@ body {
   .filter__reset {
     margin-top: 0;
   }
-  .product-card__btn-wrap {
-    display: flex;
-    gap: 10px;
-  }
-  .product-card__btn-basket, .product-card__btn-counter {
-    margin-bottom: 0;
-  }
-  .product-card__btn-buy {
-    flex: 1 0 50%;
-  }
   .optional__slider {
     height: 570px;
   }
@@ -3022,9 +3011,6 @@ body {
   }
   .catalog__products {
     gap: 10px;
-  }
-  .product-card__btn-buy {
-    display: none;
   }
   .optional__slider {
     height: 533px;

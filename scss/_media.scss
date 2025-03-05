@@ -988,22 +988,6 @@
     }
   }
 
-  .product-card {
-    &__btn-wrap {
-      display: flex;
-      gap: 10px;
-    }
-
-    &__btn-basket,
-    &__btn-counter {
-      margin-bottom: 0;
-    }
-
-    &__btn-buy {
-      flex: 1 0 50%;
-    }
-  }
-
   .optional {
     &__slider {
       height: 570px;
@@ -1091,12 +1075,6 @@
   .catalog {
     &__products {
       gap: 10px;
-    }
-  }
-
-  .product-card {
-    &__btn-buy {
-      display: none;
     }
   }
 

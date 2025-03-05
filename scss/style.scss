@@ -1709,13 +1709,13 @@
 
   &__text {
     font-weight: 500;
-    margin-bottom: 8px;
+    margin-bottom: auto;
+    color: $dark-blue;
   }
 
   &__collection {
-    color: #4D526C;
-    margin-top: auto;
-    margin-bottom: 8px;
+    color: $blue-text;
+    margin: 8px 0px;
   }
 
   &__price {
