@@ -1,29 +1,24 @@
 import { useDynamicAdapt } from "./dynamicAdapt.js";
 import { products } from "./products.js";
 
-//====== Динамичкский АДАПТИВ =================================//
-useDynamicAdapt();
-
 //====== функция запуска по страницам ========================//
 function init() {
+  burgerMenu();
+  dropDownMenu();
+  popup();
+
+  // Динамичкский АДАПТИВ
+  useDynamicAdapt();
+
   const currentPage = window.location.pathname;
   switch (currentPage) {
     case "/index.html":
       sliderIndex();
-      burgerMenu();
-      dropDownMenu();
-      popup();
       break;
     case "/card.html":
       sliderCard();
-      burgerMenu();
-      dropDownMenu();
-      popup();
       break;
     case "/mixers.html":
-      burgerMenu();
-      dropDownMenu();
-      popup();
       dropDownFilter();
       priceFilter();
       formationIdForInput();
@@ -31,9 +26,6 @@ function init() {
       counter();
       break;
     case "/catalog.html":
-      burgerMenu();
-      dropDownMenu();
-      popup();
       dropDownFilter();
       priceFilter();
       formationIdForInput();
@@ -44,7 +36,7 @@ function init() {
       break;
   }
 }
-document.addEventListener("DOMContentLoader", init());
+document.addEventListener("DOMContentLoaded", init());
 
 //======== CЛАЙДЕРЫ ===========================================//
 function sliderIndex() {
@@ -164,7 +156,9 @@ function sliderCard() {
   });
 }
 
-//========= POPUP =============================================//
+/**
+ * POPUP
+ */
 function popup() {
   const bookCallBtn = document.getElementById("open");
   const closePopUp = document.getElementById("close");
@@ -198,13 +192,14 @@ function popup() {
   });
 }
 
-//========= Бургер-МЕНЮ =======================================//
+/**
+ * Бургер-МЕНЮ
+ */
 function burgerMenu() {
-  const body = document.querySelector("body");
   const navBtn = document.querySelector(".header__mobile-btn");
   const headerNav = document.querySelector(".header__mobile-menu");
   navBtn.addEventListener("click", function () {
-    body.classList.toggle("no-scroll");
+    document.body.classList.toggle("no-scroll");
     headerNav.classList.toggle("active");
     navBtn.classList.toggle("active");
   });
@@ -318,20 +313,20 @@ function priceFilter() {
 
 //==== формируем автоID для input и FOR для label фильтров =====//
 function formationIdForInput() {
-  document.addEventListener("DOMContentLoaded", function () {
-    const filterInputs = document.querySelectorAll(".filter__input");
-    filterInputs.forEach((input, index) => {
-      const uniqueId = `input-${index}`;
-      input.setAttribute("id", uniqueId);
-      const label = input.nextElementSibling;
-      if (label) {
-        label.setAttribute("for", uniqueId);
-      }
-    });
+  const filterInputs = document.querySelectorAll(".filter__input");
+  filterInputs.forEach((input, index) => {
+    const uniqueId = `input-${index}`;
+    input.setAttribute("id", uniqueId);
+    const label = input.nextElementSibling;
+    if (label) {
+      label.setAttribute("for", uniqueId);
+    }
   });
 }
 
-//==== создаем разметку в catalog.html для product-card =========//
+/**
+ * Добдавляет карточку товара (это JSDoc)
+ */
 function addProductCard() {
   //массив products имрортируем из файла "./products.js"
   //находим контейнер для карточек
@@ -353,7 +348,7 @@ function addProductCard() {
           product.stickerHit
         }">Хит</div>
       </div>
-      <a href="#" class="product-card__photo">
+      <a href="card.html" class="product-card__photo">
         <img class="product-card__img" src=${product.img} alt="photo">
       </a>
       <div class="product-card__info card-info">
@@ -388,7 +383,9 @@ function addProductCard() {
   });
 }
 
-//=== счетчик в корзину по клику на кнопку "КУПИТЬ В 1 КЛИК" ====//
+/**
+ * счетчик в корзину по клику на кнопку "КУПИТЬ В 1 КЛИК"
+ */
 function counter() {
   const cards = document.getElementById("product-container");
   //запускаем прослушку по блоку с карточками
@@ -428,5 +425,3 @@ function counter() {
     }
   });
 }
-
-

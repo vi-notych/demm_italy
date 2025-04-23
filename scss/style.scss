@@ -1221,8 +1221,6 @@
   padding: 25px 0;
 
   &__list {
-    display: flex;
-    flex-wrap: wrap;
     font-size: 15px;
     color: $dark-grey;
 
@@ -1233,7 +1231,7 @@
   }
 
   &__link {
-    display: inline-block;
+    display: inline;
     opacity: 0.5;
 
     &_current {
