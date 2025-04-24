@@ -206,6 +206,9 @@ function burgerMenu() {
 }
 
 //========= Выпадающий СПИСОК =================================//
+/**
+ * каталог в мобильном меню
+ */
 function dropDownMenu() {
   const catalogBtn = document.querySelector(".header__mobile-catalog");
   const catalogList = document.querySelector(".header__bottom-list");
@@ -214,6 +217,10 @@ function dropDownMenu() {
     catalogList.classList.toggle("open");
   });
 }
+
+/**
+ * списки фильтров
+ */
 function dropDownFilter() {
   //определяем кнопки фильтров
   const filterBtn = document.querySelectorAll(".filter__btn");
@@ -243,11 +250,21 @@ function dropDownFilter() {
             ) {
               otherBtn.classList.remove("open");
               otherList.classList.remove("open");
+              otherList.classList.remove("right");
             }
           });
         }
         //открываем выбранный фильтр
         list.classList.toggle("open");
+        //определяем  координаты списка выбранного фильтра
+        const listPosition = list.getBoundingClientRect();
+        //console.log(listPosition);
+        //console.log(innerWidth);
+        //если правый край списока выходит за границу экрана
+        if (listPosition.right > innerWidth) {
+          //позиционируем по правому краю
+          list.classList.add("right");
+        }
       }
     });
   });
@@ -425,3 +442,13 @@ function counter() {
     }
   });
 }
+
+
+// document.addEventListener("DOMContentLoaded", () => {
+//   const body = document.querySelector("body");
+
+//   body.addEventListener("click", (e) => {
+//     const el = e.target;
+//     console.log(el);
+//   });
+// });

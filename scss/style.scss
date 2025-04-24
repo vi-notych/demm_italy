@@ -1466,7 +1466,7 @@
     &.open {
       pointer-events: auto;
       padding-top: 15px;
-      max-height: 400px;
+      max-height: max-content;
       opacity: 1;
     }
   }
