@@ -98,7 +98,8 @@ body {
   flex-direction: column;
 }
 
-.no-scroll {
+.no-scroll,
+.none-scroll {
   overflow-y: hidden;
 }
 

@@ -162,6 +162,7 @@ function sliderCard() {
 function popup() {
   const bookCallBtn = document.getElementById("open");
   const closePopUp = document.getElementById("close");
+  const booking = document.getElementById("booking");
   const popUp = document.getElementById("popup");
   const modalWindow = document.querySelector(".popup__container");
   const body = document.querySelector("body");
@@ -182,6 +183,8 @@ function popup() {
   //====== выключаем popup
   //кнопкой "close"
   closePopUp.addEventListener("click", () => removeClass());
+  //кнопкой "booking"
+  booking.addEventListener("click", () => removeClass());
   //нажатием на кнопку "Escape"
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") removeClass();
@@ -199,7 +202,7 @@ function burgerMenu() {
   const navBtn = document.querySelector(".header__mobile-btn");
   const headerNav = document.querySelector(".header__mobile-menu");
   navBtn.addEventListener("click", function () {
-    document.body.classList.toggle("no-scroll");
+    document.body.classList.toggle("none-scroll");
     headerNav.classList.toggle("active");
     navBtn.classList.toggle("active");
   });
